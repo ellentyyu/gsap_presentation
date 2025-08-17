@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My GSAP Demo Talk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reveal.js core CSS -->
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+  <!-- Highlight.js (for code syntax highlighting if needed) -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+  <!-- my own css -->
+  <link rel="stylesheet" href="./assets/custom.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      
+      <!-- Title slide -->
+      <section>
+        <h1>Animating with GSAP</h1>
+        <p><small>Ellen 2025/08/??</small></p>
+      </section>
+
+      <!-- p2 what -->
+      <section>
+        <h2>What is GSAP?</h2>
+        <div style="display: flex; align-items: center; gap: 10px; width: 1200px;">
+          <img src="/assets/gsap_logo_before_after.png" width="400" height="200" alt="gsap logos">
+          <ul style="font-size: 30px;">
+            <li>GreenSock Animation Platform (GSAP)</li>
+            <li>JavaScript animation library</li>
+            <li>Flash → JavaScript</li>
+            <li>GSAP 3 (2019): 統一 plugins、簡化 API</li>
+          </ul>
+        </div>
+        <a href="https://gsap.com/" target="_blank" style="font-size: 28px; text-decoration:underline;"><i>To GSAP website</i></a>
+      </section>
+      <!-- p3 why -->
+       <section>
+        <h2>Why GSAP over CSS?</h2>
+        <ul style="font-size: 30px;">
+          <li>效能優化 (60fps)</li>
+          <li>更多可控細節、進階效果</li>
+          <li>支援不同瀏覽器</li>
+          <li>支援原生、前端框架、WordPress...</li>
+        </ul>
+      </section>
+      <!-- p4 -->
+      <section>
+        <h2>CSS vs GSAP</h2>
+        <div style="display: flex; gap: 20px;">
+          <div style="width: 50%; min-width: 550px">
+            <h4>CSS</h4>
+            <pre>
+              <code class="css" data-trim data-noescape>
+              .box {
+                animation: spin 2s linear infinite;
+              }
+              @keyframes spin {
+                to { transform: rotate(360deg); }
+              }
+            </code>
+          </pre>
+          </div>
+          <div style="width: 50%">
+            <h4>GSAP</h4>
+            <pre><code class="javascript" data-trim data-noescape>
+              gsap.to(".box", {
+                rotation: 360,
+                repeat: -1,
+                duration: 2,
+                ease: "linear"
+              });
+            </code></pre>
+          </div>
+        </div>
+        <!-- speaker notes
+          1. simple syntax
+          2. gsap object 是所有行為的 access point，建立動畫、調整設定、加入 plugins
+        -->
+      </section>
+
+            <!-- p5 tween -->
+      <section>
+        <h2>Tween</h2>
+        <p style="font-size: 30px;">一段動畫，控制目標在一段時間內的改變。<br>
+        <div style="display: flex; align-items: center;">
+           <ul style="font-size: 26px;">
+            <li><code>gsap.to()</code> → 改變成指定狀態</li>
+            <li><code>gsap.from()</code> → 改變成原本狀態</li>
+            <li><code>gsap.fromTo()</code> → 從 A 狀態改變成 B 狀態</li>
+          </ul>
+          <div>
+            <img src="assets/tween-diagram.webp" alt="GSAP Tween structure" width="600" height="280">
+            
+            <p style="font-size: 16px;"><i>Image from GSAP official docs</i></p>
+          </div>
+
+        </div>
+       
+      </section>
+
+      <!-- CodePen embed slide -->
+      <section>
+        <h2>Live Demo</h2>
+        <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="dPYJNdE" data-pen-title="gsap.to()" data-editable="true" data-user="pink-gin" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+          <span>See the Pen <a href="https://codepen.io/pink-gin/pen/dPYJNdE">
+          gsap.to()</a> by pink-gin (<a href="https://codepen.io/pink-gin">@pink-gin</a>)
+          on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js core -->
+  <script src="dist/reveal.js"></script>
+
+  <!-- Reveal.js plugins -->
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,              // update URL as you navigate
+      slideNumber: true,       // show slide numbers
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+    });
+  </script>
+</body>
+</html>
