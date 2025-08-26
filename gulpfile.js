@@ -278,10 +278,16 @@ gulp.task('build', gulp.parallel('js', 'css', 'plugins'))
 gulp.task('package', gulp.series(async () => {
 
     let dirs = [
-        './index.html',
-        './dist/**',
-        './plugin/**',
-        './*/*.md'
+        // './index.html',
+        // './dist/**',
+        // './plugin/**',
+        // './*/*.md'
+        "gsap.html",
+        "*dist/**/*",
+        "*media/**/*",
+        "*plugin/**/*",
+        "*markdown/**/*",
+        "assets/**/*",
     ];
 
     if (fs.existsSync('./lib')) dirs.push('./lib/**');
